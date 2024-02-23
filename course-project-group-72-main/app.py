@@ -16,7 +16,7 @@ app.secret_key = 'my secret key'
 db_config = {
    'host': 'localhost',
    'user': 'root',
-   'password': 'rithu2005',
+   'password': 'Msia@444',
    'database': 'amigos_project'
 }
 
@@ -196,8 +196,8 @@ def login():
     conn = connect_to_mysql()
     cursor = conn.cursor(dictionary=True)
 
-    username = request.form['username']
-    password = request.form['password']
+    username = request.form.get('username','')
+    password = request.form.get('password','')
 
     cursor.execute("SELECT * FROM users_details WHERE username = %s", (username,))
     user = cursor.fetchone()
@@ -216,7 +216,7 @@ def connectt_to_mysql():
     return mysql.connector.connect(
         host='localhost',
         user='root',
-        password='rithu2005',
+        password='Msia@444',
         database='amigos_project'
     )
 @app.route('/user_profile/<username>', methods=['POST', 'GET'])
