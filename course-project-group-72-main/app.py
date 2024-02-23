@@ -204,6 +204,7 @@ def login():
 
     if user and bcrypt.check_password_hash(user['password'], password):
         token = generate_token(username)
+        session['userid']=user['userid']
         conn.close()
         return redirect(url_for('user_profile', username=username, token=token))
     else:
