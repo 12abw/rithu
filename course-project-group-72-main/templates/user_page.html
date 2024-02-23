@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Navigation bar styles */
+        .nav-bar {
+            height: 50px;
+            width: 100%;
+            background-color: rgb(12, 36, 82);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: white;
+        }
+
+        /* Individual navigation items */
+        .bor {
+            border: 2px solid transparent;
+            padding: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Hover effect */
+        .bor:hover {
+            border-color: white;
+            cursor: pointer;
+        }
+        .cont-1{
+            color: white;
+        }
+        /* Animation for water drops */
+        /* @keyframes water-drop-fall {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Styling for water drop element */
+        /* .water-drop {
+            position: absolute;
+            width: 20px;
+            height: 18px;
+            background-color: lightcyan;
+            border-radius: 50%;
+            animation: water-drop-fall 2s linear infinite;
+            animation-delay: calc(-1s * var(--delay));
+        } */
+
+        /* Multiple water drops */
+        /* .water-drop:nth-child(2) {
+            left: 10%;
+            --delay: 0.2;
+        }
+
+        .water-drop:nth-child(3) {
+            left: 20%;
+            --delay: 0.4;
+        }
+
+        .water-drop:nth-child(4) {
+            left: 30%;
+            --delay: 0.6;
+        }
+
+        .water-drop:nth-child(5) {
+            left: 40%;
+            --delay: 0.8;
+        }
+
+        .water-drop:nth-child(6) {
+            left: 50%;
+            --delay: 1;
+        }
+
+        .water-drop:nth-child(7) {
+            left: 60%;
+            --delay: 1.2;
+        }
+
+        .water-drop:nth-child(8) {
+            left: 70%;
+            --delay: 1.4;
+        }
+
+        .water-drop:nth-child(9) {
+            left: 80%;
+            --delay: 1.6;
+        }
+
+        .water-drop:nth-child(10) {
+            left: 90%;
+            --delay: 1.8;
+        }  */
+    </style>
+</head>
+
+<body style="position: relative; overflow: hidden; background-image:url('/static/images/nav_back.jpeg');background-size: cover;">
+
+    <!-- Water drops -->
+    <!-- <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div>
+    <div class="water-drop"></div> -->
+
+    <div class="nav-bar">
+        <div class="bor" onclick="fun_userD()">User details</div>
+        <div class="bor" onclick="fun_imgG()">Image gallery</div>
+        <div class="bor">Show uploaded images</div>
+    </div>
+
+    <div class="cont-1" style="display: none">
+        <h2>User Details:</h2>
+        <pre>Username  : {{ user.username }}</pre>
+        <pre>Full Name : {{ user.fullname }}</pre>
+        <pre>Email     : {{ user.email }}</pre>
+    </div>
+    
+    <script>
+        function fun_userD()
+        {
+            let x=document.querySelector(".cont-1");
+            x.style.display="block";
+        }
+        function fun_imgG()
+        {
+            window.location.href="{{ url_for('mult_image') }}";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/video.css" />
+
+   <title>Create Video</title>
+   <style>
+      .btns {
+         display: flex;
+         justify-content: space-evenly;
+         align-items: center;
+      }
+      .btn {
+         color: white;
+         padding: 10px 15px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         background-color: #3498db;
+      }
+      .btn:hover {
+         background-color: #1d618f;
+      }
+      #myVideo {
+         max-width: 600px;
+         height: auto;
+         margin: 0 auto;
+      }
+      #prev_id{
+         text-align: center;
+      }
+      .controls {
+         display: flex;
+         justify-content: center;
+         margin-top: 10px;
+      }
+
+      .controls button {
+         background-color: #3498db;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 18px;
+         margin: 0 10px;
+      }
+
+      .controls button:hover {
+         background-color: #1d618f;
+      }
+   </style>
+</head>
+<body style=" background-color:rgb(210, 240, 235)">
+
+   <button id="prev_id" class="btn">Previewing images</button>
+   <div class="main">
+      <div class="image-grid">
+         <img src="./images/img10.jpg" alt="Image 2">
+         <img src="./images/img1_.jpg" alt="Image 2">
+         <img src="./images/img6.jpg" alt="Image 3">
+         <img src="./images/img5.jpg" alt="Image 3">
+         <img src="./images/img12.jpg" alt="Image 3">
+         <img src="./images/img2_.jpg" alt="Image 3">
+         <img src="./images/img9.jpg" alt="Image 3">
+         <img src="./images/img11.jpg" alt="Image 3">
+         <img src="./images/img3_.jpg" alt="Image 3">
+
+      </div>
+      <div class="options">
+         <div class="btns">
+            <button class="btn">Select BGM</button>
+            <button class="btn">Select video duration</button>
+         </div>
+      </div>
+      <div class="video">
+            <video id="myVideo" controls>
+               <source src="/static/video.mp4" type="video/mp4">
+               Your browser does not support the video tag.
+            </video>
+            <div class="controls">
+               <button onclick="togglePlayPause()">Play/Pause</button>
+               <button onclick="rewind()">Rewind 10s</button>
+            </div>
+      </div>
+   </div>
+
+   <script>
+      const video = document.getElementById('myVideo');
+      function togglePlayPause() {
+         if (video.paused || video.ended) {
+            video.play();
+         } else {
+            video.pause();
+         }
+      }
+      function rewind() {
+         video.currentTime -= 10;
+      }
+   </script>
+</body>
+</html>
